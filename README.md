@@ -7,7 +7,7 @@ This repository provides a centralized configuration file for WordPress plugins 
 WordPress plugins can fetch the configuration directly from GitHub:
 
 ```
-https://raw.githubusercontent.com/[yourusername]/AIEngines/main/ai-engines.json
+https://raw.githubusercontent.com/nholzmann/AIEngines/main/ai-engines.json
 ```
 
 ## File Structure
