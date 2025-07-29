@@ -1,0 +1,386 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-01-29",
+  "engines": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "status": "active",
+      "capabilities": {
+        "text_generation": true,
+        "image_generation": true,
+        "image_editing": true,
+        "embeddings": true,
+        "speech_to_text": true,
+        "text_to_speech": true
+      },
+      "models": [
+        {
+          "model_id": "gpt-4",
+          "name": "GPT-4",
+          "type": "chat",
+          "context_window": 128000,
+          "max_output_tokens": 16384,
+          "supports_vision": true,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "gpt-4o",
+          "name": "GPT-4o",
+          "type": "chat",
+          "context_window": 128000,
+          "max_output_tokens": 16384,
+          "supports_vision": true,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "gpt-4o-mini",
+          "name": "GPT-4o Mini",
+          "type": "chat",
+          "context_window": 128000,
+          "max_output_tokens": 16384,
+          "supports_vision": true,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "gpt-3.5-turbo",
+          "name": "GPT-3.5 Turbo",
+          "type": "chat",
+          "context_window": 16385,
+          "max_output_tokens": 4096,
+          "supports_vision": false,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "text-embedding-3-small",
+          "name": "Text Embedding 3 Small",
+          "type": "embedding",
+          "dimensions": 1536
+        },
+        {
+          "model_id": "text-embedding-3-large",
+          "name": "Text Embedding 3 Large",
+          "type": "embedding",
+          "dimensions": 3072
+        }
+      ],
+      "endpoints": {
+        "base_url": "https://api.openai.com/v1",
+        "chat": "/chat/completions",
+        "embeddings": "/embeddings",
+        "images_generation": "/images/generations",
+        "images_edit": "/images/edits",
+        "audio_speech": "/audio/speech",
+        "audio_transcriptions": "/audio/transcriptions",
+        "models": "/models"
+      },
+      "authentication": {
+        "type": "bearer",
+        "header": "Authorization",
+        "prefix": "Bearer"
+      }
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "status": "active",
+      "capabilities": {
+        "text_generation": true,
+        "image_generation": false,
+        "image_editing": false,
+        "embeddings": false,
+        "speech_to_text": false,
+        "text_to_speech": false,
+        "code_execution": true,
+        "file_handling": true
+      },
+      "models": [
+        {
+          "model_id": "claude-opus-4-20250514",
+          "name": "Claude Opus 4",
+          "type": "chat",
+          "context_window": 200000,
+          "max_output_tokens": 8192,
+          "supports_vision": true,
+          "supports_function_calling": true,
+          "supports_extended_thinking": true
+        },
+        {
+          "model_id": "claude-sonnet-4-20250514",
+          "name": "Claude Sonnet 4",
+          "type": "chat",
+          "context_window": 200000,
+          "max_output_tokens": 8192,
+          "supports_vision": true,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "claude-sonnet-3.7-20250514",
+          "name": "Claude Sonnet 3.7",
+          "type": "chat",
+          "context_window": 200000,
+          "max_output_tokens": 8192,
+          "supports_vision": true,
+          "supports_function_calling": true
+        }
+      ],
+      "endpoints": {
+        "base_url": "https://api.anthropic.com",
+        "messages": "/v1/messages"
+      },
+      "headers_required": {
+        "anthropic-version": "2023-06-01",
+        "content-type": "application/json"
+      },
+      "authentication": {
+        "type": "header",
+        "header": "x-api-key"
+      }
+    },
+    {
+      "id": "google",
+      "name": "Google AI",
+      "status": "active",
+      "capabilities": {
+        "text_generation": true,
+        "image_generation": false,
+        "image_editing": false,
+        "embeddings": true,
+        "speech_to_text": false,
+        "text_to_speech": false
+      },
+      "models": [
+        {
+          "model_id": "gemini-2.5-pro-preview",
+          "name": "Gemini 2.5 Pro Preview",
+          "type": "chat",
+          "context_window": 2097152,
+          "max_output_tokens": 8192,
+          "supports_vision": true,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "gemini-2.0-flash",
+          "name": "Gemini 2.0 Flash",
+          "type": "chat",
+          "context_window": 1048576,
+          "max_output_tokens": 8192,
+          "supports_vision": true,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "gemini-1.5-pro",
+          "name": "Gemini 1.5 Pro",
+          "type": "chat",
+          "context_window": 2097152,
+          "max_output_tokens": 8192,
+          "supports_vision": true,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "gemini-1.5-flash",
+          "name": "Gemini 1.5 Flash",
+          "type": "chat",
+          "context_window": 1048576,
+          "max_output_tokens": 8192,
+          "supports_vision": true,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "gemini-embedding-001",
+          "name": "Gemini Embedding 001",
+          "type": "embedding",
+          "dimensions": 3072
+        }
+      ],
+      "endpoints": {
+        "base_url": "https://generativelanguage.googleapis.com/v1beta",
+        "models": "/models",
+        "generate_content": "/models/{model}:generateContent",
+        "embed_content": "/models/{model}:embedContent"
+      },
+      "alternative_endpoints": {
+        "vertex_ai": {
+          "base_pattern": "https://{REGION}-aiplatform.googleapis.com/v1/projects/{PROJECT_ID}/locations/{REGION}/publishers/google/models/{MODEL_ID}:predict"
+        }
+      },
+      "authentication": {
+        "type": "query",
+        "parameter": "key"
+      }
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral AI",
+      "status": "active",
+      "capabilities": {
+        "text_generation": true,
+        "image_generation": false,
+        "image_editing": false,
+        "embeddings": true,
+        "speech_to_text": false,
+        "text_to_speech": false,
+        "document_understanding": true
+      },
+      "models": [
+        {
+          "model_id": "mistral-large-2411",
+          "name": "Mistral Large (24.11)",
+          "type": "chat",
+          "context_window": 128000,
+          "max_output_tokens": 4096,
+          "supports_vision": false,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "mistral-small-3.1-2503",
+          "name": "Mistral Small 3.1 (25.03)",
+          "type": "chat",
+          "context_window": 32000,
+          "max_output_tokens": 4096,
+          "supports_vision": false,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "mistral-saba-2405",
+          "name": "Mistral Saba (24B)",
+          "type": "chat",
+          "context_window": 32000,
+          "max_output_tokens": 4096,
+          "supports_vision": false,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "mistral-ocr-2505",
+          "name": "Mistral OCR (25.05)",
+          "type": "ocr",
+          "context_window": 128000,
+          "max_output_tokens": 4096,
+          "supports_vision": true,
+          "supports_function_calling": false
+        },
+        {
+          "model_id": "codestral-latest",
+          "name": "Codestral",
+          "type": "code",
+          "context_window": 32000,
+          "max_output_tokens": 4096,
+          "supports_vision": false,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "mistral-embed",
+          "name": "Mistral Embed",
+          "type": "embedding",
+          "dimensions": 1024
+        }
+      ],
+      "endpoints": {
+        "base_url": "https://api.mistral.ai/v1",
+        "chat": "/chat/completions",
+        "embeddings": "/embeddings"
+      },
+      "authentication": {
+        "type": "bearer",
+        "header": "Authorization",
+        "prefix": "Bearer"
+      }
+    },
+    {
+      "id": "groq",
+      "name": "Groq",
+      "status": "active",
+      "capabilities": {
+        "text_generation": true,
+        "image_generation": false,
+        "image_editing": false,
+        "embeddings": false,
+        "speech_to_text": false,
+        "text_to_speech": false,
+        "batch_processing": true
+      },
+      "models": [
+        {
+          "model_id": "llama-3.3-70b-versatile",
+          "name": "Llama 3.3 70B Versatile",
+          "type": "chat",
+          "context_window": 128000,
+          "max_output_tokens": 8192,
+          "supports_vision": false,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "llama3-8b-8192",
+          "name": "Llama 3 8B",
+          "type": "chat",
+          "context_window": 8192,
+          "max_output_tokens": 8192,
+          "supports_vision": false,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "llama-3.1-8b-instant",
+          "name": "Llama 3.1 8B Instant",
+          "type": "chat",
+          "context_window": 128000,
+          "max_output_tokens": 8192,
+          "supports_vision": false,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "kimi-k2-instruct",
+          "name": "Kimi K2 Instruct (1T MoE)",
+          "type": "chat",
+          "context_window": 32768,
+          "max_output_tokens": 8192,
+          "supports_vision": false,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "llama-4-scout-17b-16e-instruct",
+          "name": "Llama 4 Scout Vision",
+          "type": "chat",
+          "context_window": 32768,
+          "max_output_tokens": 8192,
+          "supports_vision": true,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "llama-4-maverick-17b-128e-instruct",
+          "name": "Llama 4 Maverick Vision",
+          "type": "chat",
+          "context_window": 32768,
+          "max_output_tokens": 8192,
+          "supports_vision": true,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "mixtral-8x7b-32768",
+          "name": "Mixtral 8x7B",
+          "type": "chat",
+          "context_window": 32768,
+          "max_output_tokens": 4096,
+          "supports_vision": false,
+          "supports_function_calling": true
+        }
+      ],
+      "endpoints": {
+        "base_url": "https://api.groq.com/openai/v1",
+        "chat": "/chat/completions",
+        "models": "/models",
+        "batch": "/batch"
+      },
+      "service_tiers": ["on_demand", "flex", "auto"],
+      "authentication": {
+        "type": "bearer",
+        "header": "Authorization",
+        "prefix": "Bearer"
+      }
+    }
+  ],
+  "metadata": {
+    "description": "AI Engines configuration for WordPress plugins",
+    "documentation": "https://github.com/yourusername/AIEngines/blob/main/README.md",
+    "schema_version": "1.0.0"
+  }
+}
