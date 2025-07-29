@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "last_updated": "2025-01-29",
+  "last_updated": "2025-07-29",
   "engines": [
     {
       "id": "openai",
@@ -375,6 +375,163 @@
         "type": "bearer",
         "header": "Authorization",
         "prefix": "Bearer"
+      }
+    },
+    {
+      "id": "xai",
+      "name": "xAI (Grok)",
+      "status": "active",
+      "capabilities": {
+        "text_generation": true,
+        "image_generation": false,
+        "image_editing": false,
+        "embeddings": false,
+        "speech_to_text": false,
+        "text_to_speech": false,
+        "tool_use": true,
+        "live_search": true,
+        "structured_outputs": true
+      },
+      "models": [
+        {
+          "model_id": "grok-4",
+          "name": "Grok 4",
+          "type": "chat",
+          "context_window": 130000,
+          "max_output_tokens": 8192,
+          "supports_vision": true,
+          "supports_function_calling": true,
+          "reasoning_model": true,
+          "knowledge_cutoff": "2024-11"
+        },
+        {
+          "model_id": "grok-3",
+          "name": "Grok 3",
+          "type": "chat",
+          "context_window": 130000,
+          "max_output_tokens": 8192,
+          "supports_vision": false,
+          "supports_function_calling": true,
+          "knowledge_cutoff": "2024-11"
+        },
+        {
+          "model_id": "grok-2",
+          "name": "Grok 2",
+          "type": "chat",
+          "context_window": 32768,
+          "max_output_tokens": 4096,
+          "supports_vision": false,
+          "supports_function_calling": true
+        }
+      ],
+      "endpoints": {
+        "base_url": "https://api.grok.xai.com/v1",
+        "chat": "/chat/completions",
+        "models": "/models"
+      },
+      "authentication": {
+        "type": "bearer",
+        "header": "Authorization",
+        "prefix": "Bearer"
+      },
+      "notes": {
+        "openai_compatible": true,
+        "live_search_pricing": "$0.025 per source"
+      }
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity AI",
+      "status": "active",
+      "capabilities": {
+        "text_generation": true,
+        "image_generation": false,
+        "image_editing": false,
+        "embeddings": false,
+        "speech_to_text": false,
+        "text_to_speech": false,
+        "real_time_search": true,
+        "citations": true,
+        "search_filters": true
+      },
+      "models": [
+        {
+          "model_id": "sonar",
+          "name": "Sonar",
+          "type": "chat",
+          "context_window": 127000,
+          "max_output_tokens": 8192,
+          "supports_vision": false,
+          "supports_function_calling": false,
+          "search_enabled": true,
+          "factuality_score": 0.773
+        },
+        {
+          "model_id": "sonar-pro",
+          "name": "Sonar Pro",
+          "type": "chat",
+          "context_window": 200000,
+          "max_output_tokens": 8192,
+          "supports_vision": false,
+          "supports_function_calling": false,
+          "search_enabled": true,
+          "factuality_score": 0.858,
+          "enhanced_citations": true
+        },
+        {
+          "model_id": "sonar-small",
+          "name": "Sonar Small",
+          "type": "chat",
+          "context_window": 32000,
+          "max_output_tokens": 4096,
+          "supports_vision": false,
+          "supports_function_calling": false,
+          "search_enabled": true
+        },
+        {
+          "model_id": "sonar-medium",
+          "name": "Sonar Medium",
+          "type": "chat",
+          "context_window": 64000,
+          "max_output_tokens": 4096,
+          "supports_vision": false,
+          "supports_function_calling": false,
+          "search_enabled": true
+        },
+        {
+          "model_id": "mistral-7b",
+          "name": "Mistral 7B",
+          "type": "chat",
+          "context_window": 8192,
+          "max_output_tokens": 4096,
+          "supports_vision": false,
+          "supports_function_calling": false
+        }
+      ],
+      "endpoints": {
+        "base_url": "https://api.perplexity.ai",
+        "chat": "/chat/completions"
+      },
+      "authentication": {
+        "type": "bearer",
+        "header": "Authorization",
+        "prefix": "Bearer"
+      },
+      "pricing": {
+        "sonar": {
+          "search": "$5 per 1000 searches",
+          "input": "$1 per 750K words",
+          "output": "$1 per 750K words"
+        },
+        "sonar_pro": {
+          "search": "$5 per 1000 searches",
+          "input": "$3 per 750K words",
+          "output": "$15 per 750K words"
+        }
+      },
+      "notes": {
+        "openai_compatible": true,
+        "pro_credits": "$5 monthly for pro subscribers"
       }
     }
   ],
