@@ -23,6 +23,8 @@ Every ~3 months, update the `ai-engines.json` file with the latest information f
    - **Google AI**: Gemini models, embedding support, both direct API and Vertex AI endpoints
    - **Mistral AI**: Latest models including specialized ones (OCR, code), embedding capabilities
    - **Groq**: Fast inference models, vision models, batch processing capabilities
+   - **xAI (Grok)**: Latest Grok models (4, 3, 2), tool use, live search integration, structured outputs
+   - **Perplexity AI**: Sonar models (standard/pro/small/medium), real-time search, citations, pricing tiers
 
 3. **Update Structure Elements:**
    - `capabilities`: What the engine can do (text_generation, image_generation, embeddings, etc.)
@@ -52,6 +54,10 @@ Every ~3 months, update the `ai-engines.json` file with the latest information f
         "embeddings": boolean,
         "speech_to_text": boolean,
         "text_to_speech": boolean,
+        "tool_use": boolean,
+        "live_search": boolean,
+        "real_time_search": boolean,
+        "citations": boolean,
         // Additional capabilities as needed
       },
       "models": [
@@ -63,6 +69,9 @@ Every ~3 months, update the `ai-engines.json` file with the latest information f
           "max_output_tokens": number,
           "supports_vision": boolean,
           "supports_function_calling": boolean,
+          "reasoning_model": boolean,
+          "search_enabled": boolean,
+          "knowledge_cutoff": "YYYY-MM",
           // Model-specific fields
         }
       ],
@@ -85,13 +94,13 @@ Every ~3 months, update the `ai-engines.json` file with the latest information f
 
 Plugins fetch the configuration from:
 ```
-https://raw.githubusercontent.com/[username]/AIEngines/main/ai-engines.json
+https://raw.githubusercontent.com/nholzmann/AIEngines/main/ai-engines.json
 ```
 
 Example PHP code for plugins:
 ```php
 function get_ai_engines() {
-    $response = wp_remote_get('https://raw.githubusercontent.com/[username]/AIEngines/main/ai-engines.json');
+    $response = wp_remote_get('https://raw.githubusercontent.com/nholzmann/AIEngines/main/ai-engines.json');
     if (is_wp_error($response)) {
         return false;
     }
@@ -102,6 +111,11 @@ function get_ai_engines() {
 // Check capabilities
 if ($engine['capabilities']['image_generation']) {
     // This engine can generate images
+}
+
+// Check for real-time search capability
+if ($engine['capabilities']['real_time_search'] || $engine['capabilities']['live_search']) {
+    // This engine has real-time search capabilities
 }
 ```
 
