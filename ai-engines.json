@@ -431,12 +431,15 @@
         },
         {
           "model_id": "grok-2",
-          "name": "Grok 2",
+          "name": "Grok 2 (Deprecated)",
           "type": "chat",
           "context_window": 32768,
           "max_output_tokens": 4096,
           "supports_vision": false,
-          "supports_function_calling": true
+          "supports_function_calling": true,
+          "deprecated": true,
+          "deprecation_date": "2025-09-15",
+          "migration_target": "grok-4"
         }
       ],
       "endpoints": {
