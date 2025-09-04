@@ -12,19 +12,41 @@ This repository maintains a JSON configuration file (`ai-engines.json`) that Wor
 
 Every ~3 months, update the `ai-engines.json` file with the latest information from each AI provider:
 
-1. **Research Current Endpoints and Models**
-   - Use web search to find the latest documentation for each provider
-   - Look for: new models, deprecated models, new endpoints, capability changes
-   - Verify API base URLs haven't changed
+**IMPORTANT: Process engines ONE AT A TIME, not all at once. This prevents overwhelming changes and allows for better validation.**
 
-2. **For Each AI Engine, Check:**
+1. **Research New Engines First**
+   - Search for new AI providers that have emerged
+   - Check if any should be added to the JSON
+   - Note any providers that have been discontinued
+
+2. **For Each Engine (Process ONE at a time):**
+   
+   **Step 1: Research and Verify**
+   - Use web search to find current API documentation
+   - Verify the base URL and endpoint structure
+   - Check for new/deprecated models
+   - Look for capability changes
+   
+   **Step 2: Validate Current Data**
+   - Test model names against official documentation
+   - Verify endpoint URLs are correct
+   - Check authentication requirements
+   - Confirm context windows, token limits, and features
+   
+   **Step 3: Update JSON**
+   - Update ONLY the current engine being processed
+   - Commit changes for this single engine
+   - Test the updated JSON before proceeding to next engine
+   
+   **Engine Priority Order:**
    - **OpenAI**: Chat completions, embeddings, image generation/editing, audio (TTS/STT), latest GPT models
    - **Anthropic**: Messages API, latest Claude models, new features (code execution, file handling)
    - **Google AI**: Gemini models, embedding support, both direct API and Vertex AI endpoints
    - **Mistral AI**: Latest models including specialized ones (OCR, code), embedding capabilities
    - **Groq**: Fast inference models, vision models, batch processing capabilities
    - **xAI (Grok)**: Latest Grok models (4, 3, 2), tool use, live search integration, structured outputs
-   - **Perplexity AI**: Sonar models (standard/pro/small/medium), real-time search, citations, pricing tiers
+   - **Perplexity AI**: Sonar models, real-time search, citations, pricing tiers
+   - **Other providers**: Cohere, DeepSeek, Together AI, Fireworks AI
 
 3. **Update Structure Elements:**
    - `capabilities`: What the engine can do (text_generation, image_generation, embeddings, etc.)
@@ -33,7 +55,7 @@ Every ~3 months, update the `ai-engines.json` file with the latest information f
    - `authentication`: How to authenticate (bearer token, API key header, etc.)
 
 4. **Version and Date**
-   - Update the `last_updated` field to current date
+   - Update the `last_updated` field to current date only after ALL engines are processed
    - Consider incrementing version if making structural changes
 
 ## JSON Structure Reference
