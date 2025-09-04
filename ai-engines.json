@@ -615,7 +615,7 @@
         {
           "model_id": "sonar",
           "name": "Sonar",
-          "type": "chat",
+          "type": "search",
           "context_window": 127000,
           "max_output_tokens": 8192,
           "supports_vision": false,
@@ -624,9 +624,9 @@
           "factuality_score": 0.773
         },
         {
-          "model_id": "sonar-pro",
+          "model_id": "sonar pro",
           "name": "Sonar Pro",
-          "type": "chat",
+          "type": "search",
           "context_window": 200000,
           "max_output_tokens": 8192,
           "supports_vision": false,
@@ -636,33 +636,38 @@
           "enhanced_citations": true
         },
         {
-          "model_id": "sonar-small",
-          "name": "Sonar Small",
-          "type": "chat",
-          "context_window": 32000,
-          "max_output_tokens": 4096,
+          "model_id": "sonar reasoning",
+          "name": "Sonar Reasoning",
+          "type": "reasoning",
+          "context_window": 128000,
+          "max_output_tokens": 8192,
           "supports_vision": false,
           "supports_function_calling": false,
-          "search_enabled": true
+          "search_enabled": true,
+          "reasoning_model": true
         },
         {
-          "model_id": "sonar-medium",
-          "name": "Sonar Medium",
-          "type": "chat",
-          "context_window": 64000,
-          "max_output_tokens": 4096,
+          "model_id": "sonar reasoning pro",
+          "name": "Sonar Reasoning Pro",
+          "type": "reasoning",
+          "context_window": 200000,
+          "max_output_tokens": 8192,
           "supports_vision": false,
           "supports_function_calling": false,
-          "search_enabled": true
+          "search_enabled": true,
+          "reasoning_model": true,
+          "powered_by": "DeepSeek-R1"
         },
         {
-          "model_id": "mistral-7b",
-          "name": "Mistral 7B",
-          "type": "chat",
-          "context_window": 8192,
-          "max_output_tokens": 4096,
+          "model_id": "sonar deep research",
+          "name": "Sonar Deep Research",
+          "type": "research",
+          "context_window": 200000,
+          "max_output_tokens": 16384,
           "supports_vision": false,
-          "supports_function_calling": false
+          "supports_function_calling": false,
+          "search_enabled": true,
+          "comprehensive_reports": true
         }
       ],
       "endpoints": {
