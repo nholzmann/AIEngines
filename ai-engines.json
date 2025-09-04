@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "last_updated": "2025-07-29",
+  "last_updated": "2025-09-04",
   "engines": [
     {
       "id": "openai",
@@ -12,17 +12,62 @@
         "image_editing": true,
         "embeddings": true,
         "speech_to_text": true,
-        "text_to_speech": true
+        "text_to_speech": true,
+        "code_execution": false,
+        "web_search": true
       },
       "models": [
         {
-          "model_id": "gpt-4",
-          "name": "GPT-4",
+          "model_id": "gpt-4.1",
+          "name": "GPT-4.1",
+          "type": "chat",
+          "context_window": 1000000,
+          "max_output_tokens": 32000,
+          "supports_vision": true,
+          "supports_function_calling": true,
+          "knowledge_cutoff": "2024-06"
+        },
+        {
+          "model_id": "gpt-4.1-mini",
+          "name": "GPT-4.1 Mini",
+          "type": "chat",
+          "context_window": 1000000,
+          "max_output_tokens": 32000,
+          "supports_vision": true,
+          "supports_function_calling": true,
+          "knowledge_cutoff": "2024-06"
+        },
+        {
+          "model_id": "gpt-4.1-nano",
+          "name": "GPT-4.1 Nano",
           "type": "chat",
           "context_window": 128000,
           "max_output_tokens": 16384,
+          "supports_vision": false,
+          "supports_function_calling": true,
+          "knowledge_cutoff": "2024-06"
+        },
+        {
+          "model_id": "o3",
+          "name": "o3",
+          "type": "reasoning",
+          "context_window": 200000,
+          "max_output_tokens": 100000,
           "supports_vision": true,
-          "supports_function_calling": true
+          "supports_function_calling": true,
+          "reasoning_model": true,
+          "knowledge_cutoff": "2024-06"
+        },
+        {
+          "model_id": "o3-mini",
+          "name": "o3-mini",
+          "type": "reasoning",
+          "context_window": 200000,
+          "max_output_tokens": 100000,
+          "supports_vision": false,
+          "supports_function_calling": true,
+          "reasoning_model": true,
+          "knowledge_cutoff": "2023-10"
         },
         {
           "model_id": "gpt-4o",
@@ -107,27 +152,31 @@
         "speech_to_text": false,
         "text_to_speech": false,
         "code_execution": true,
-        "file_handling": true
+        "file_handling": true,
+        "prompt_caching": true,
+        "batch_processing": true
       },
       "models": [
         {
-          "model_id": "claude-opus-4-20250514",
-          "name": "Claude Opus 4",
+          "model_id": "claude-opus-4.1",
+          "name": "Claude Opus 4.1",
           "type": "chat",
           "context_window": 200000,
           "max_output_tokens": 8192,
           "supports_vision": true,
           "supports_function_calling": true,
-          "supports_extended_thinking": true
+          "reasoning_model": true,
+          "knowledge_cutoff": "2024-04"
         },
         {
-          "model_id": "claude-sonnet-4-20250514",
+          "model_id": "claude-sonnet-4",
           "name": "Claude Sonnet 4",
           "type": "chat",
-          "context_window": 200000,
-          "max_output_tokens": 8192,
+          "context_window": 1000000,
+          "max_output_tokens": 64000,
           "supports_vision": true,
-          "supports_function_calling": true
+          "supports_function_calling": true,
+          "knowledge_cutoff": "2024-04"
         },
         {
           "model_id": "claude-sonnet-3.7-20250514",
@@ -166,13 +215,24 @@
       },
       "models": [
         {
-          "model_id": "gemini-2.5-pro-preview",
-          "name": "Gemini 2.5 Pro Preview",
+          "model_id": "gemini-2.5-pro",
+          "name": "Gemini 2.5 Pro",
           "type": "chat",
           "context_window": 2097152,
           "max_output_tokens": 8192,
           "supports_vision": true,
-          "supports_function_calling": true
+          "supports_function_calling": true,
+          "multimodal": true
+        },
+        {
+          "model_id": "gemini-2.5-flash",
+          "name": "Gemini 2.5 Flash",
+          "type": "chat",
+          "context_window": 1048576,
+          "max_output_tokens": 8192,
+          "supports_vision": true,
+          "supports_function_calling": true,
+          "multimodal": true
         },
         {
           "model_id": "gemini-2.0-flash",
@@ -181,7 +241,8 @@
           "context_window": 1048576,
           "max_output_tokens": 8192,
           "supports_vision": true,
-          "supports_function_calling": true
+          "supports_function_calling": true,
+          "tool_use": true
         },
         {
           "model_id": "gemini-1.5-pro",
@@ -239,6 +300,16 @@
       },
       "models": [
         {
+          "model_id": "mistral-medium-3",
+          "name": "Mistral Medium 3",
+          "type": "chat",
+          "context_window": 128000,
+          "max_output_tokens": 8192,
+          "supports_vision": true,
+          "supports_function_calling": true,
+          "multimodal": true
+        },
+        {
           "model_id": "mistral-large-2411",
           "name": "Mistral Large (24.11)",
           "type": "chat",
@@ -251,6 +322,16 @@
           "model_id": "mistral-small-3.1-2503",
           "name": "Mistral Small 3.1 (25.03)",
           "type": "chat",
+          "context_window": 128000,
+          "max_output_tokens": 4096,
+          "supports_vision": true,
+          "supports_function_calling": true,
+          "multimodal": true
+        },
+        {
+          "model_id": "devstral-small",
+          "name": "Devstral Small",
+          "type": "code",
           "context_window": 32000,
           "max_output_tokens": 4096,
           "supports_vision": false,
@@ -275,8 +356,8 @@
           "supports_function_calling": false
         },
         {
-          "model_id": "codestral-latest",
-          "name": "Codestral",
+          "model_id": "codestral-2501",
+          "name": "Codestral (25.01)",
           "type": "code",
           "context_window": 32000,
           "max_output_tokens": 4096,
@@ -315,6 +396,15 @@
         "batch_processing": true
       },
       "models": [
+        {
+          "model_id": "gpt-oss-120b",
+          "name": "GPT-OSS 120B",
+          "type": "chat",
+          "context_window": 128000,
+          "max_output_tokens": 8192,
+          "supports_vision": false,
+          "supports_function_calling": true
+        },
         {
           "model_id": "llama-3.3-70b-versatile",
           "name": "Llama 3.3 70B Versatile",
@@ -358,7 +448,8 @@
           "context_window": 32768,
           "max_output_tokens": 8192,
           "supports_vision": true,
-          "supports_function_calling": true
+          "supports_function_calling": true,
+          "multimodal": true
         },
         {
           "model_id": "llama-4-maverick-17b-128e-instruct",
@@ -367,7 +458,8 @@
           "context_window": 32768,
           "max_output_tokens": 8192,
           "supports_vision": true,
-          "supports_function_calling": true
+          "supports_function_calling": true,
+          "multimodal": true
         },
         {
           "model_id": "mixtral-8x7b-32768",
@@ -398,14 +490,16 @@
       "status": "active",
       "capabilities": {
         "text_generation": true,
-        "image_generation": false,
+        "image_generation": true,
         "image_editing": false,
         "embeddings": false,
         "speech_to_text": false,
         "text_to_speech": false,
         "tool_use": true,
         "live_search": true,
-        "structured_outputs": true
+        "structured_outputs": true,
+        "code_execution": true,
+        "cached_prompts": true
       },
       "models": [
         {
@@ -417,7 +511,18 @@
           "supports_vision": true,
           "supports_function_calling": true,
           "reasoning_model": true,
+          "multimodal": true,
           "knowledge_cutoff": "2024-11"
+        },
+        {
+          "model_id": "grok-code-fast-1",
+          "name": "Grok Code Fast 1",
+          "type": "code",
+          "context_window": 128000,
+          "max_output_tokens": 8192,
+          "supports_vision": false,
+          "supports_function_calling": true,
+          "reasoning_model": true
         },
         {
           "model_id": "grok-3",
@@ -550,6 +655,173 @@
       "notes": {
         "openai_compatible": true,
         "pro_credits": "$5 monthly for pro subscribers"
+      }
+    },
+    {
+      "id": "cohere",
+      "name": "Cohere",
+      "status": "active",
+      "capabilities": {
+        "text_generation": true,
+        "image_generation": false,
+        "image_editing": false,
+        "embeddings": true,
+        "speech_to_text": false,
+        "text_to_speech": false,
+        "rag_optimized": true
+      },
+      "models": [
+        {
+          "model_id": "command-r",
+          "name": "Command R",
+          "type": "chat",
+          "context_window": 128000,
+          "max_output_tokens": 4096,
+          "supports_vision": false,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "command-r-plus",
+          "name": "Command R+",
+          "type": "chat",
+          "context_window": 128000,
+          "max_output_tokens": 4096,
+          "supports_vision": false,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "embed-3.5",
+          "name": "Cohere Embed 3.5",
+          "type": "embedding",
+          "dimensions": 1024,
+          "multilingual": true
+        }
+      ],
+      "endpoints": {
+        "base_url": "https://api.cohere.ai/v1",
+        "chat": "/chat",
+        "embeddings": "/embed"
+      },
+      "authentication": {
+        "type": "bearer",
+        "header": "Authorization",
+        "prefix": "Bearer"
+      }
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "status": "active",
+      "capabilities": {
+        "text_generation": true,
+        "image_generation": false,
+        "image_editing": false,
+        "embeddings": false,
+        "speech_to_text": false,
+        "text_to_speech": false
+      },
+      "models": [
+        {
+          "model_id": "deepseek-v3",
+          "name": "DeepSeek V3",
+          "type": "chat",
+          "context_window": 64000,
+          "max_output_tokens": 8192,
+          "supports_vision": false,
+          "supports_function_calling": true,
+          "parameters": "671B"
+        }
+      ],
+      "endpoints": {
+        "base_url": "https://api.deepseek.com/v1",
+        "chat": "/chat/completions"
+      },
+      "authentication": {
+        "type": "bearer",
+        "header": "Authorization",
+        "prefix": "Bearer"
+      },
+      "pricing": {
+        "input": "$0.27 per 1M tokens",
+        "output": "$1.10 per 1M tokens"
+      }
+    },
+    {
+      "id": "together",
+      "name": "Together AI",
+      "status": "active",
+      "capabilities": {
+        "text_generation": true,
+        "image_generation": false,
+        "image_editing": false,
+        "embeddings": true,
+        "speech_to_text": false,
+        "text_to_speech": false,
+        "fine_tuning": true
+      },
+      "models": [
+        {
+          "model_id": "together-embeddings",
+          "name": "Together Embeddings",
+          "type": "embedding",
+          "dimensions": 1024
+        }
+      ],
+      "endpoints": {
+        "base_url": "https://api.together.xyz/v1",
+        "chat": "/chat/completions",
+        "embeddings": "/embeddings"
+      },
+      "authentication": {
+        "type": "bearer",
+        "header": "Authorization",
+        "prefix": "Bearer"
+      },
+      "pricing": {
+        "embeddings": "$0.008 per 1M tokens"
+      }
+    },
+    {
+      "id": "fireworks",
+      "name": "Fireworks AI",
+      "status": "active",
+      "capabilities": {
+        "text_generation": true,
+        "image_generation": false,
+        "image_editing": false,
+        "embeddings": false,
+        "speech_to_text": false,
+        "text_to_speech": false,
+        "fast_inference": true
+      },
+      "models": [
+        {
+          "model_id": "llama-3.2-70b",
+          "name": "Llama 3.2 70B",
+          "type": "chat",
+          "context_window": 128000,
+          "max_output_tokens": 8192,
+          "supports_vision": false,
+          "supports_function_calling": true
+        },
+        {
+          "model_id": "mixtral-8x7b",
+          "name": "Mixtral 8x7B",
+          "type": "chat",
+          "context_window": 32768,
+          "max_output_tokens": 4096,
+          "supports_vision": false,
+          "supports_function_calling": true
+        }
+      ],
+      "endpoints": {
+        "base_url": "https://api.fireworks.ai/inference/v1",
+        "chat": "/chat/completions"
+      },
+      "authentication": {
+        "type": "bearer",
+        "header": "Authorization",
+        "prefix": "Bearer"
       }
     }
   ],
