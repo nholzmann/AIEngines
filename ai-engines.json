@@ -582,7 +582,7 @@
         }
       ],
       "endpoints": {
-        "base_url": "https://api.grok.xai.com/v1",
+        "base_url": "https://api.x.ai/v1",
         "chat": "/chat/completions",
         "models": "/models"
       },
