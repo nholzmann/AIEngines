@@ -348,15 +348,19 @@
         "embeddings": true,
         "speech_to_text": false,
         "text_to_speech": false,
-        "document_understanding": true
+        "document_understanding": true,
+        "ocr": true,
+        "code_generation": true,
+        "multimodal": true,
+        "software_engineering": true
       },
       "models": [
         {
-          "model_id": "mistral-medium-3",
-          "name": "Mistral Medium 3",
+          "model_id": "mistral-medium-2508",
+          "name": "Mistral Medium 3.1",
           "type": "chat",
           "context_window": 128000,
-          "max_output_tokens": 8192,
+          "max_output_tokens": 32000,
           "supports_vision": true,
           "supports_function_calling": true,
           "multimodal": true
@@ -365,56 +369,89 @@
           "model_id": "mistral-large-2411",
           "name": "Mistral Large (24.11)",
           "type": "chat",
-          "context_window": 128000,
-          "max_output_tokens": 4096,
+          "context_window": 131072,
+          "max_output_tokens": 32000,
           "supports_vision": false,
-          "supports_function_calling": true
+          "supports_function_calling": true,
+          "parameters": "123B"
         },
         {
-          "model_id": "mistral-small-3.1-2503",
-          "name": "Mistral Small 3.1 (25.03)",
+          "model_id": "pixtral-large-2411",
+          "name": "Pixtral Large (24.11)",
           "type": "chat",
           "context_window": 128000,
-          "max_output_tokens": 4096,
+          "max_output_tokens": 32000,
           "supports_vision": true,
           "supports_function_calling": true,
-          "multimodal": true
+          "multimodal": true,
+          "parameters": "124B",
+          "vision_encoder": "1B",
+          "min_images": 30
         },
         {
-          "model_id": "devstral-small",
-          "name": "Devstral Small",
-          "type": "code",
-          "context_window": 32000,
-          "max_output_tokens": 4096,
-          "supports_vision": false,
-          "supports_function_calling": true
-        },
-        {
-          "model_id": "mistral-saba-2405",
-          "name": "Mistral Saba (24B)",
+          "model_id": "mistral-small-2506",
+          "name": "Mistral Small 3.2",
           "type": "chat",
-          "context_window": 32000,
-          "max_output_tokens": 4096,
-          "supports_vision": false,
-          "supports_function_calling": true
-        },
-        {
-          "model_id": "mistral-ocr-2505",
-          "name": "Mistral OCR (25.05)",
-          "type": "ocr",
           "context_window": 128000,
-          "max_output_tokens": 4096,
-          "supports_vision": true,
-          "supports_function_calling": false
+          "max_output_tokens": 32000,
+          "supports_vision": false,
+          "supports_function_calling": true,
+          "license": "Apache2"
         },
         {
-          "model_id": "codestral-2501",
-          "name": "Codestral (25.01)",
-          "type": "code",
-          "context_window": 32000,
-          "max_output_tokens": 4096,
+          "model_id": "open-mistral-nemo",
+          "name": "Mistral Nemo 12B",
+          "type": "chat",
+          "context_window": 128000,
+          "max_output_tokens": 32000,
           "supports_vision": false,
-          "supports_function_calling": true
+          "supports_function_calling": true,
+          "multilingual": true,
+          "parameters": "12B"
+        },
+        {
+          "model_id": "ministral-8b-2410",
+          "name": "Ministral 8B",
+          "type": "chat",
+          "context_window": 128000,
+          "max_output_tokens": 32000,
+          "supports_vision": false,
+          "supports_function_calling": true,
+          "edge_optimized": true,
+          "parameters": "8B"
+        },
+        {
+          "model_id": "devstral-small-2505",
+          "name": "Devstral Small 2505",
+          "type": "code",
+          "context_window": 128000,
+          "max_output_tokens": 32000,
+          "supports_vision": false,
+          "supports_function_calling": true,
+          "parameters": "24B",
+          "software_engineering": true,
+          "swe_bench_score": 46.8
+        },
+        {
+          "model_id": "mistral-ocr-2503",
+          "name": "Mistral OCR (25.03)",
+          "type": "ocr",
+          "max_pages": 1000,
+          "max_file_size": "50MB",
+          "supports_vision": true,
+          "supports_function_calling": false,
+          "processing_speed": "2000_pages_per_minute"
+        },
+        {
+          "model_id": "codestral-2508",
+          "name": "Codestral 2508",
+          "type": "code",
+          "context_window": 256000,
+          "max_output_tokens": 32000,
+          "supports_vision": false,
+          "supports_function_calling": true,
+          "programming_languages": "80+",
+          "parameters": "22B"
         },
         {
           "model_id": "mistral-embed",
