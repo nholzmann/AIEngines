@@ -158,38 +158,79 @@
         "code_execution": true,
         "file_handling": true,
         "prompt_caching": true,
-        "batch_processing": true
+        "batch_processing": true,
+        "extended_thinking": true,
+        "interleaved_thinking": true,
+        "tool_use": true
       },
       "models": [
         {
-          "model_id": "claude-opus-4.1",
+          "model_id": "claude-opus-4-1-20250805",
           "name": "Claude Opus 4.1",
           "type": "chat",
           "context_window": 200000,
-          "max_output_tokens": 8192,
+          "max_output_tokens": 32000,
           "supports_vision": true,
           "supports_function_calling": true,
           "reasoning_model": true,
-          "knowledge_cutoff": "2024-04"
+          "extended_thinking": true,
+          "knowledge_cutoff": "2025-03"
         },
         {
-          "model_id": "claude-sonnet-4",
+          "model_id": "claude-opus-4-20250514",
+          "name": "Claude Opus 4",
+          "type": "chat",
+          "context_window": 200000,
+          "max_output_tokens": 32000,
+          "supports_vision": true,
+          "supports_function_calling": true,
+          "reasoning_model": true,
+          "extended_thinking": true,
+          "knowledge_cutoff": "2025-03"
+        },
+        {
+          "model_id": "claude-sonnet-4-20250514",
           "name": "Claude Sonnet 4",
           "type": "chat",
-          "context_window": 1000000,
+          "context_window": 200000,
           "max_output_tokens": 64000,
           "supports_vision": true,
           "supports_function_calling": true,
-          "knowledge_cutoff": "2024-04"
+          "beta_context_window": 1000000,
+          "beta_header_required": "context-1m-2025-08-07",
+          "knowledge_cutoff": "2025-03"
         },
         {
-          "model_id": "claude-sonnet-3.7-20250514",
+          "model_id": "claude-3-7-sonnet-20250219",
           "name": "Claude Sonnet 3.7",
+          "type": "chat",
+          "context_window": 200000,
+          "max_output_tokens": 64000,
+          "supports_vision": true,
+          "supports_function_calling": true,
+          "extended_output_beta": 128000,
+          "beta_header_required": "output-128k-2025-02-19",
+          "knowledge_cutoff": "2024-11"
+        },
+        {
+          "model_id": "claude-3-5-haiku-20241022",
+          "name": "Claude 3.5 Haiku",
           "type": "chat",
           "context_window": 200000,
           "max_output_tokens": 8192,
           "supports_vision": true,
-          "supports_function_calling": true
+          "supports_function_calling": true,
+          "knowledge_cutoff": "2024-07"
+        },
+        {
+          "model_id": "claude-3-haiku-20240307",
+          "name": "Claude 3 Haiku",
+          "type": "chat",
+          "context_window": 200000,
+          "max_output_tokens": 4096,
+          "supports_vision": true,
+          "supports_function_calling": true,
+          "knowledge_cutoff": "2023-08"
         }
       ],
       "endpoints": {
