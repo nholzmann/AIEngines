@@ -482,7 +482,11 @@
         "embeddings": false,
         "speech_to_text": false,
         "text_to_speech": false,
-        "batch_processing": true
+        "batch_processing": true,
+        "vision": true,
+        "multimodal": true,
+        "fast_inference": true,
+        "tool_use": true
       },
       "models": [
         {
@@ -490,74 +494,73 @@
           "name": "GPT-OSS 120B",
           "type": "chat",
           "context_window": 128000,
-          "max_output_tokens": 8192,
+          "max_output_tokens": 32000,
           "supports_vision": false,
-          "supports_function_calling": true
+          "supports_function_calling": true,
+          "parameters": "120B_total_5.1B_active",
+          "architecture": "MoE",
+          "experts": 128
         },
         {
           "model_id": "llama-3.3-70b-versatile",
           "name": "Llama 3.3 70B Versatile",
           "type": "chat",
           "context_window": 128000,
-          "max_output_tokens": 8192,
+          "max_output_tokens": 32000,
           "supports_vision": false,
-          "supports_function_calling": true
-        },
-        {
-          "model_id": "llama3-8b-8192",
-          "name": "Llama 3 8B",
-          "type": "chat",
-          "context_window": 8192,
-          "max_output_tokens": 8192,
-          "supports_vision": false,
-          "supports_function_calling": true
+          "supports_function_calling": true,
+          "parameters": "70B",
+          "multilingual": true
         },
         {
           "model_id": "llama-3.1-8b-instant",
           "name": "Llama 3.1 8B Instant",
           "type": "chat",
           "context_window": 128000,
-          "max_output_tokens": 8192,
+          "max_output_tokens": 32000,
           "supports_vision": false,
-          "supports_function_calling": true
+          "supports_function_calling": true,
+          "parameters": "8B",
+          "instant_responses": true,
+          "speed_tokens_per_second": 1200
         },
         {
-          "model_id": "kimi-k2-instruct",
+          "model_id": "moonshotai/kimi-k2-instruct",
           "name": "Kimi K2 Instruct (1T MoE)",
           "type": "chat",
-          "context_window": 32768,
-          "max_output_tokens": 8192,
+          "context_window": 1000000,
+          "max_output_tokens": 32000,
           "supports_vision": false,
-          "supports_function_calling": true
+          "supports_function_calling": true,
+          "parameters": "1T_total_32B_active",
+          "experts": 384,
+          "agentic": true
         },
         {
-          "model_id": "llama-4-scout-17b-16e-instruct",
+          "model_id": "meta-llama/llama-4-scout-17b-16e-instruct",
           "name": "Llama 4 Scout Vision",
           "type": "chat",
-          "context_window": 32768,
-          "max_output_tokens": 8192,
+          "context_window": 10000000,
+          "max_output_tokens": 32000,
           "supports_vision": true,
           "supports_function_calling": true,
-          "multimodal": true
+          "multimodal": true,
+          "parameters": "17B_active_109B_total",
+          "experts": 16,
+          "speed_tokens_per_second": 460
         },
         {
-          "model_id": "llama-4-maverick-17b-128e-instruct",
+          "model_id": "meta-llama/llama-4-maverick-17b-128e-instruct",
           "name": "Llama 4 Maverick Vision",
           "type": "chat",
-          "context_window": 32768,
-          "max_output_tokens": 8192,
+          "context_window": 1000000,
+          "max_output_tokens": 32000,
           "supports_vision": true,
           "supports_function_calling": true,
-          "multimodal": true
-        },
-        {
-          "model_id": "mixtral-8x7b-32768",
-          "name": "Mixtral 8x7B",
-          "type": "chat",
-          "context_window": 32768,
-          "max_output_tokens": 4096,
-          "supports_vision": false,
-          "supports_function_calling": true
+          "multimodal": true,
+          "parameters": "17B_active_400B_total",
+          "experts": 128,
+          "multilingual": true
         }
       ],
       "endpoints": {
