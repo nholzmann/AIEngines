@@ -787,8 +787,19 @@
           "supports_function_calling": true
         },
         {
-          "model_id": "embed-3.5",
-          "name": "Cohere Embed 3.5",
+          "model_id": "command-a-03-2025",
+          "name": "Command A (03-2025)",
+          "type": "chat",
+          "context_window": 256000,
+          "max_output_tokens": 4096,
+          "supports_vision": false,
+          "supports_function_calling": true,
+          "agentic": true,
+          "performance": "most_performant"
+        },
+        {
+          "model_id": "embed-v4.0",
+          "name": "Cohere Embed v4.0",
           "type": "embedding",
           "dimensions": 1024,
           "multilingual": true
