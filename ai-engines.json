@@ -682,7 +682,7 @@
           "factuality_score": 0.773
         },
         {
-          "model_id": "sonar pro",
+          "model_id": "sonar-pro",
           "name": "Sonar Pro",
           "type": "search",
           "context_window": 200000,
@@ -694,7 +694,7 @@
           "enhanced_citations": true
         },
         {
-          "model_id": "sonar reasoning",
+          "model_id": "sonar-reasoning",
           "name": "Sonar Reasoning",
           "type": "reasoning",
           "context_window": 128000,
@@ -705,7 +705,7 @@
           "reasoning_model": true
         },
         {
-          "model_id": "sonar reasoning pro",
+          "model_id": "sonar-reasoning-pro",
           "name": "Sonar Reasoning Pro",
           "type": "reasoning",
           "context_window": 200000,
@@ -717,7 +717,7 @@
           "powered_by": "DeepSeek-R1"
         },
         {
-          "model_id": "sonar deep research",
+          "model_id": "sonar-deep-research",
           "name": "Sonar Deep Research",
           "type": "research",
           "context_window": 200000,
