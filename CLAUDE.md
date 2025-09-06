@@ -28,7 +28,9 @@ Every ~3 months, update the `ai-engines.json` file with the latest information f
    - Look for capability changes
    
    **Step 2: Validate Current Data**
-   - Test model names against official documentation
+   - **CRITICAL**: Compare JSON model IDs against official API documentation
+   - Verify model names use EXACT API identifiers (not display names)
+   - Check for spaces vs hyphens in model names (e.g., "sonar-pro" not "sonar pro")
    - Verify endpoint URLs are correct
    - Check authentication requirements
    - Confirm context windows, token limits, and features
@@ -48,13 +50,28 @@ Every ~3 months, update the `ai-engines.json` file with the latest information f
    - **Perplexity AI**: Sonar models, real-time search, citations, pricing tiers
    - **Other providers**: Cohere, DeepSeek, Together AI, Fireworks AI
 
-3. **Update Structure Elements:**
+3. **Common Model ID Issues to Check:**
+   - **Perplexity**: Use `sonar-pro` (hyphen), not `sonar pro` (space)
+   - **Anthropic**: Use full dated IDs like `claude-opus-4-1-20250805`, not `claude-opus-4.1`
+   - **Fireworks**: Use full paths like `accounts/fireworks/models/llama-v3p3-70b-instruct`
+   - **Groq**: Use namespace format like `meta-llama/llama-4-scout-17b-16e-instruct`
+   - **Together AI**: Use full model paths like `meta-llama/Llama-3-8b-chat-hf`, not generic names
+   - **Cohere**: Check for new models like `command-a-03-2025` and correct embed model names
+   - **DeepSeek**: Use API names like `deepseek-chat`/`deepseek-reasoner`, not version numbers
+
+4. **Update Structure Elements:**
    - `capabilities`: What the engine can do (text_generation, image_generation, embeddings, etc.)
    - `models`: Current model IDs, context windows, output limits, vision/function calling support
    - `endpoints`: API endpoints for each capability
    - `authentication`: How to authenticate (bearer token, API key header, etc.)
 
-4. **Version and Date**
+5. **Validation Process:**
+   - Always validate JSON syntax after changes
+   - Cross-reference model IDs with official API reference documentation
+   - Check API endpoints by looking at official docs, not third-party sources
+   - Verify context windows and token limits from official specifications
+
+6. **Version and Date**
    - Update the `last_updated` field to current date only after ALL engines are processed
    - Consider incrementing version if making structural changes
 
