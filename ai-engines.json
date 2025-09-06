@@ -830,14 +830,28 @@
       },
       "models": [
         {
-          "model_id": "deepseek-v3",
-          "name": "DeepSeek V3",
+          "model_id": "deepseek-chat",
+          "name": "DeepSeek-V3.1 (Non-thinking Mode)",
           "type": "chat",
-          "context_window": 64000,
-          "max_output_tokens": 8192,
+          "context_window": 128000,
+          "max_output_tokens": 32768,
           "supports_vision": false,
           "supports_function_calling": true,
-          "parameters": "671B"
+          "parameters": "671B_total_37B_active",
+          "architecture": "MoE"
+        },
+        {
+          "model_id": "deepseek-reasoner",
+          "name": "DeepSeek-V3.1 (Thinking Mode)",
+          "type": "reasoning",
+          "context_window": 128000,
+          "max_output_tokens": 64000,
+          "supports_vision": false,
+          "supports_function_calling": true,
+          "parameters": "671B_total_37B_active",
+          "architecture": "MoE",
+          "reasoning_model": true,
+          "thinking_mode": true
         }
       ],
       "endpoints": {
